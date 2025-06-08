@@ -75,27 +75,27 @@
       font-weight: 500;
     }
 
-    /* Desktop auto-scroll */
+    /* ✅ AUTO-SCROLL PROJECTS ON DESKTOP */
     .projects-wrapper {
       overflow: hidden;
-      display: none;
       position: relative;
+      display: none;
     }
 
     .projects {
       display: flex;
+      width: max-content;
       gap: 20px;
-      width: fit-content;
-      animation: scroll-loop 40s linear infinite;
-    }
-
-    .projects:hover {
-      animation-play-state: paused;
+      animation: scroll-loop 50s linear infinite;
     }
 
     @keyframes scroll-loop {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
+    }
+
+    .projects:hover {
+      animation-play-state: paused;
     }
 
     .project-card {
@@ -105,7 +105,6 @@
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
       transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
       text-decoration: none;
       color: inherit;
       display: flex;
@@ -148,16 +147,17 @@
       font-weight: 300;
     }
 
-    /* Mobile version: grid layout */
+    /* 📱 STATIC GRID FOR MOBILE */
     .projects-static {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
+    /* 👤 TEAM SECTION */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 20px;
       margin-top: 20px;
     }
@@ -165,7 +165,7 @@
     .member-card {
       background: linear-gradient(145deg, #1a1a1a, #111);
       border-radius: 15px;
-      padding: 25px 15px;
+      padding: 20px 10px;
       text-align: center;
       box-shadow: 0 8px 15px rgba(255, 255, 255, 0.05);
       transition: transform 0.3s, box-shadow 0.3s;
@@ -180,6 +180,8 @@
       width: 100px;
       height: 100px;
       border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
       margin-bottom: 10px;
       border: 3px solid var(--primary-color);
       box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
@@ -223,7 +225,7 @@
       font-weight: 300;
     }
 
-    /* Show scrolling only on desktop */
+    /* 🎯 RESPONSIVE TOGGLE */
     @media (min-width: 768px) {
       .projects-wrapper {
         display: block;
@@ -232,13 +234,10 @@
       .projects-static {
         display: none;
       }
-
-      .team-grid {
-        grid-template-columns: repeat(5, 1fr);
-      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="overlay">
@@ -250,42 +249,112 @@
   <div class="container">
     <h2 class="section-title">ผลงานของฉัน</h2>
 
-    <!-- 👨‍💻 Desktop Scroll Section -->
+    <!-- AUTO SCROLL (DESKTOP) -->
     <div class="projects-wrapper">
       <div class="projects">
-        <!-- รวมซ้ำเพื่อให้ลูปสมบูรณ์ -->
-        <a href="#" class="project-card"><img src="sdgs.jpg"><div class="info"><h3>SDGs Young Creator</h3><p>ดูรายละเอียด</p></div></a>
-        <a href="#" class="project-card"><img src="destiny.jpg"><div class="info"><h3>Destiny of Love</h3><p>ดูรายละเอียด</p></div></a>
-        <a href="#" class="project-card"><img src="https://via.placeholder.com/400x200?text=Project+1"><div class="info"><h3>โตมากับแลตตาซอย</h3><p>ดูรายละเอียด</p></div></a>
-        <a href="#" class="project-card"><div class="placeholder">รอประกาศผลการแข่งขัน</div><div class="info"><h3>meสติweสไตล์</h3><p>ดูรายละเอียด</p></div></a>
-        <a href="#" class="project-card"><div class="placeholder">อยู่ระหว่างการแข่งขัน</div><div class="info"><h3>STOP Bullying</h3><p>ดูรายละเอียด</p></div></a>
-        <!-- สำเนา -->
-        <a href="#" class="project-card"><img src="sdgs.jpg"><div class="info"><h3>SDGs Young Creator</h3><p>ดูรายละเอียด</p></div></a>
-        <a href="#" class="project-card"><img src="destiny.jpg"><div class="info"><h3>Destiny of Love</h3><p>ดูรายละเอียด</p></div></a>
-        <a href="#" class="project-card"><img src="https://via.placeholder.com/400x200?text=Project+1"><div class="info"><h3>โตมากับแลตตาซอย</h3><p>ดูรายละเอียด</p></div></a>
-        <a href="#" class="project-card"><div class="placeholder">รอประกาศผลการแข่งขัน</div><div class="info"><h3>meสติweสไตล์</h3><p>ดูรายละเอียด</p></div></a>
-        <a href="#" class="project-card"><div class="placeholder">อยู่ระหว่างการแข่งขัน</div><div class="info"><h3>STOP Bullying</h3><p>ดูรายละเอียด</p></div></a>
+        <a href="#" class="project-card">
+          <img src="https://via.placeholder.com/400x200?text=Project+1" alt="โตมากับแลตตาซอย">
+          <div class="info">
+            <h3>โตมากับแลตตาซอย</h3>
+            <p>ดูรายละเอียด</p>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <img src="sdgs.jpg" alt="SDGs Young Creator">
+          <div class="info">
+            <h3>SDGs Young Creator</h3>
+            <p>ดูรายละเอียด</p>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <img src="destiny.jpg" alt="Destiny of Love">
+          <div class="info">
+            <h3>Destiny of Love</h3>
+            <p>ดูรายละเอียด</p>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="placeholder">รอประกาศผลการแข่งขัน</div>
+          <div class="info">
+            <h3>meสติweสไตล์</h3>
+            <p>ดูรายละเอียด</p>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="placeholder">อยู่ระหว่างการแข่งขัน</div>
+          <div class="info">
+            <h3>STOP Bullying</h3>
+            <p>ดูรายละเอียด</p>
+          </div>
+        </a>
       </div>
     </div>
 
-    <!-- 📱 Static Projects for Mobile -->
+    <!-- STATIC GRID (MOBILE) -->
     <div class="projects-static">
-      <a href="#" class="project-card"><img src="sdgs.jpg"><div class="info"><h3>SDGs Young Creator</h3><p>ดูรายละเอียด</p></div></a>
-      <a href="#" class="project-card"><img src="destiny.jpg"><div class="info"><h3>Destiny of Love</h3><p>ดูรายละเอียด</p></div></a>
-      <a href="#" class="project-card"><img src="https://via.placeholder.com/400x200?text=Project+1"><div class="info"><h3>โตมากับแลตตาซอย</h3><p>ดูรายละเอียด</p></div></a>
-      <a href="#" class="project-card"><div class="placeholder">รอประกาศผลการแข่งขัน</div><div class="info"><h3>meสติweสไตล์</h3><p>ดูรายละเอียด</p></div></a>
-      <a href="#" class="project-card"><div class="placeholder">อยู่ระหว่างการแข่งขัน</div><div class="info"><h3>STOP Bullying</h3><p>ดูรายละเอียด</p></div></a>
+      <a href="#" class="project-card">
+        <img src="https://via.placeholder.com/400x200?text=Project+1" alt="โตมากับแลตตาซอย">
+        <div class="info">
+          <h3>โตมากับแลตตาซอย</h3>
+          <p>ดูรายละเอียด</p>
+        </div>
+      </a>
+      <a href="#" class="project-card">
+        <img src="sdgs.jpg" alt="SDGs Young Creator">
+        <div class="info">
+          <h3>SDGs Young Creator</h3>
+          <p>ดูรายละเอียด</p>
+        </div>
+      </a>
+      <a href="#" class="project-card">
+        <img src="destiny.jpg" alt="Destiny of Love">
+        <div class="info">
+          <h3>Destiny of Love</h3>
+          <p>ดูรายละเอียด</p>
+        </div>
+      </a>
+      <a href="#" class="project-card">
+        <div class="placeholder">รอประกาศผลการแข่งขัน</div>
+        <div class="info">
+          <h3>meสติweสไตล์</h3>
+          <p>ดูรายละเอียด</p>
+        </div>
+      </a>
+      <a href="#" class="project-card">
+        <div class="placeholder">อยู่ระหว่างการแข่งขัน</div>
+        <div class="info">
+          <h3>STOP Bullying</h3>
+          <p>ดูรายละเอียด</p>
+        </div>
+      </a>
     </div>
 
+    <!-- TEAM SECTION -->
     <h2 class="section-title">สมาชิกในทีม</h2>
     <div class="team-grid">
-      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=A" alt=""><h3>Paniti Kulrungrot</h3></div>
-      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=B" alt=""><h3>Pharunyu Karnchanasutham</h3></div>
-      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=C" alt=""><h3>Sathin Wongthienchai</h3></div>
-      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=D" alt=""><h3>Napong Moongkhumklang</h3></div>
-      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=E" alt=""><h3>Vachiravong Nonsiri</h3></div>
+      <div class="member-card">
+        <img src="https://via.placeholder.com/120x120?text=A" alt="">
+        <h3>Paniti Kulrungrot</h3>
+      </div>
+      <div class="member-card">
+        <img src="https://via.placeholder.com/120x120?text=B" alt="">
+        <h3>Pharunyu Karnchanasutham</h3>
+      </div>
+      <div class="member-card">
+        <img src="https://via.placeholder.com/120x120?text=C" alt="">
+        <h3>Sathin Wongtienchai</h3>
+      </div>
+      <div class="member-card">
+        <img src="https://via.placeholder.com/120x120?text=D" alt="">
+        <h3>Napong Moongkhamklang</h3>
+      </div>
+      <div class="member-card">
+        <img src="NAMO.jpg" alt="Vachiravong Nonsiri">
+        <h3>Vachiravong Nonsiri</h3>
+      </div>
     </div>
 
+    <!-- CONTACT -->
     <div class="contact">
       <h2>ติดต่อฉัน</h2>
       <p>
