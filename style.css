@@ -69,18 +69,19 @@ h2.section-title {
 
 /* Project Section */
 .projects-wrapper {
-  overflow-x: auto;
+  overflow: hidden;
+  cursor: grab;
   -webkit-overflow-scrolling: touch;
-  position: relative;
 }
 
 .projects {
   display: flex;
   gap: 20px;
   width: max-content;
-  animation: scroll-loop 50s linear infinite;
   scroll-behavior: smooth;
+  user-select: none;
 }
+
 
 @keyframes scroll-loop {
   0% { transform: translateX(0); }
