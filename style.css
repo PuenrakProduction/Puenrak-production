@@ -70,23 +70,33 @@ h2.section-title {
 /* Project Section */
 .projects-wrapper {
   overflow: hidden;
+  position: relative;
   cursor: grab;
-  -webkit-overflow-scrolling: touch;
+}
+
+.projects-wrapper:active {
+  cursor: grabbing;
 }
 
 .projects {
   display: flex;
   gap: 20px;
   width: max-content;
-  scroll-behavior: smooth;
   user-select: none;
+  animation: scroll-loop 50s linear infinite;
+  will-change: transform;
+  animation-play-state: running;
 }
 
+.projects-wrapper:hover .projects {
+  animation-play-state: paused;
+}
 
 @keyframes scroll-loop {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
 
 .projects:hover {
   animation-play-state: paused;
