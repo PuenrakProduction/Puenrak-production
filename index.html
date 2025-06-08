@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>เพื่อนรัก(ส์) โปรดักชั่น</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Prompt:wght@300;500;700&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --primary-color: #FFD700;
@@ -29,12 +28,11 @@
 
     header {
       height: 400px;
-      background-image: url('f74fabbc7ebee9dc.png');
+      background-image: url('https://via.placeholder.com/1200x400?text=Puenrak+Production');
       background-size: cover;
       background-position: center;
       position: relative;
       text-align: center;
-      
     }
 
     header .overlay {
@@ -47,19 +45,16 @@
     }
 
     header h1 {
-      font-size: 3.8em;
-      margin: 0;
-      font-weight: 700;
+      font-size: 3.5em;
       color: var(--primary-color);
-      text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+      font-weight: 700;
+      text-shadow: 2px 2px 8px #000;
     }
 
     header p {
-      font-size: 1.5em;
-      margin-top: 15px;
-      color: #ffffffee;
+      font-size: 1.3em;
+      color: #ffffffcc;
       font-weight: 300;
-      text-shadow: 1px 1px 2px #000;
     }
 
     .container {
@@ -74,64 +69,37 @@
       border-left: 5px solid var(--primary-color);
       padding-left: 10px;
       color: var(--primary-color);
-      font-weight: 500;
     }
 
     .projects-wrapper {
-      overflow: hidden;
-      position: relative;
+      overflow-x: auto;
     }
 
     .projects {
       display: flex;
       gap: 20px;
-      width: max-content;
-      animation: scroll-loop 60s linear infinite;
-    }
-
-    .projects:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes scroll-loop {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      padding-bottom: 10px;
     }
 
     .project-card {
-      flex: 0 0 300px;
+      flex: 0 0 280px;
       background: var(--card-bg);
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
       text-decoration: none;
       color: inherit;
-      display: flex;
-      flex-direction: column;
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px var(--primary-color);
-    }
-
-    .project-card img {
+    .project-card img, .project-card .placeholder {
       width: 100%;
       height: 160px;
       object-fit: cover;
-    }
-
-    .project-card .placeholder {
-      height: 160px;
+      background-color: #333;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #333;
       color: #ccc;
-      font-size: 1.1em;
-      font-weight: 300;
     }
 
     .project-card .info {
@@ -139,13 +107,13 @@
     }
 
     .project-card h3 {
-      margin: 0 0 10px;
       color: var(--primary-color);
-      font-weight: 500;
+      font-size: 1.1em;
+      margin-bottom: 8px;
     }
 
     .project-card p {
-      font-weight: 300;
+      font-size: 0.95em;
     }
 
     .team-grid {
@@ -158,73 +126,74 @@
     .member-card {
       background: linear-gradient(145deg, #1a1a1a, #111);
       border-radius: 15px;
-      padding: 25px 15px;
+      padding: 20px;
       text-align: center;
-      box-shadow: 0 8px 15px rgba(255, 255, 255, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-    }
-
-    .member-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px var(--primary-color);
     }
 
     .member-card img {
-      width: 100px;
-      height: 100px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       margin-bottom: 10px;
       border: 3px solid var(--primary-color);
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
     }
 
     .member-card h3 {
       font-size: 1em;
-      margin: 5px 0;
     }
 
     .member-card a {
       color: var(--primary-color);
       text-decoration: none;
-      font-weight: 500;
-    }
-
-    .member-card a:hover {
-      text-decoration: underline;
     }
 
     .contact {
-      background: var(--card-bg);
-      padding: 30px;
-      text-align: center;
       margin-top: 40px;
+      padding: 30px;
+      background: var(--card-bg);
+      text-align: center;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
     }
 
     .contact h2 {
       color: var(--primary-color);
-      font-weight: 500;
+      margin-bottom: 10px;
     }
 
     .contact a {
       color: var(--primary-color);
       text-decoration: none;
       margin: 0 10px;
-      font-weight: 500;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
       font-size: 0.9em;
-      color: #777;
-      font-weight: 300;
+      color: #888;
+      margin: 30px 0;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2em;
+      }
+
+      header p {
+        font-size: 1em;
+      }
+
+      .project-card {
+        flex: 0 0 85%;
+      }
+
+      .member-card img {
+        width: 70px;
+        height: 70px;
+      }
+
+      footer {
+        font-size: 0.75em;
+      }
     }
   </style>
 </head>
@@ -241,108 +210,37 @@
     <h2 class="section-title">ผลงานของฉัน</h2>
     <div class="projects-wrapper">
       <div class="projects">
-        <!-- รอบที่ 1 -->
         <a href="project1.html" class="project-card">
           <img src="https://via.placeholder.com/400x200?text=Project+1" alt="">
-          <div class="info">
-            <h3>โตมากับแลตตาซอย</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
+          <div class="info"><h3>โตมากับแลตตาซอย</h3><p>ดูรายละเอียด</p></div>
         </a>
         <a href="project2.html" class="project-card">
           <img src="https://via.placeholder.com/400x200?text=Project+2" alt="">
-          <div class="info">
-            <h3>SDGs Young Creator</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
+          <div class="info"><h3>SDGs Young Creator</h3><p>ดูรายละเอียด</p></div>
         </a>
         <a href="project3.html" class="project-card">
           <img src="https://via.placeholder.com/400x200?text=Project+3" alt="">
-          <div class="info">
-            <h3>Destiny of Love</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
+          <div class="info"><h3>Destiny of Love</h3><p>ดูรายละเอียด</p></div>
         </a>
         <a href="project4.html" class="project-card">
           <div class="placeholder">รอประกาศผลการแข่งขัน</div>
-          <div class="info">
-            <h3>meสติweสไตล์</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
+          <div class="info"><h3>meสติweสไตล์</h3><p>ดูรายละเอียด</p></div>
         </a>
         <a href="project5.html" class="project-card">
           <div class="placeholder">อยู่ระหว่างการแข่งขัน</div>
-          <div class="info">
-            <h3>STOP Bullying</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
-
-        <!-- รอบที่ 2 (ซ้ำเพื่อให้ลูปเนียน) -->
-        <a href="project1.html" class="project-card">
-          <img src="https://via.placeholder.com/400x200?text=Project+1" alt="">
-          <div class="info">
-            <h3>โตมากับแลตตาซอย</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
-        <a href="project2.html" class="project-card">
-          <img src="https://via.placeholder.com/400x200?text=Project+2" alt="">
-          <div class="info">
-            <h3>SDGs Young Creator</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
-        <a href="project3.html" class="project-card">
-          <img src="https://via.placeholder.com/400x200?text=Project+3" alt="">
-          <div class="info">
-            <h3>Destiny of Love</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
-        <a href="project4.html" class="project-card">
-          <div class="placeholder">รอประกาศผลการแข่งขัน</div>
-          <div class="info">
-            <h3>meสติweสไตล์</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
-        <a href="project5.html" class="project-card">
-          <div class="placeholder">อยู่ระหว่างการแข่งขัน</div>
-          <div class="info">
-            <h3>STOP Bullying</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
+          <div class="info"><h3>STOP Bullying</h3><p>ดูรายละเอียด</p></div>
         </a>
       </div>
     </div>
 
     <h2 class="section-title">สมาชิกในทีม</h2>
     <div class="team-grid">
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=A" alt="Member 1">
-        <h3><a href="member1.html">Paniti Kulrungrot</a></h3>
-      </div>
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=B" alt="Member 2">
-        <h3><a href="member2.html">Pharunyu Karnchanasutham</a></h3>
-      </div>
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=C" alt="Member 3">
-        <h3><a href="member3.html">Sathin Wongtienchai</a></h3>
-      </div>
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=D" alt="Member 4">
-        <h3><a href="member4.html">Napong Moongkhamglang</a></h3>
-      </div>
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=E" alt="Member 5">
-        <h3><a href="member5.html">Vachirawong Nonsiri</a></h3>
-      </div>
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=F" alt="Member 6">
-        <h3><a href="member6.html">New Member</a></h3>
-      </div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=A"><h3><a href="member1.html">Paniti Kulrungrot</a></h3></div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=B"><h3><a href="member2.html">Pharunyu Karnchanasutham</a></h3></div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=C"><h3><a href="member3.html">Sathin Wongtienchai</a></h3></div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=D"><h3><a href="member4.html">Napong Moongkhamglang</a></h3></div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=E"><h3><a href="member5.html">Vachirawong Nonsiri</a></h3></div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=F"><h3><a href="member6.html">New Member</a></h3></div>
     </div>
 
     <div class="contact">
