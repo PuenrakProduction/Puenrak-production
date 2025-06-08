@@ -75,18 +75,18 @@
       font-weight: 500;
     }
 
-    /* 🔁 Auto scroll section for desktop */
+    /* Desktop auto-scroll */
     .projects-wrapper {
       overflow: hidden;
+      display: none;
       position: relative;
-      display: none; /* hidden by default */
     }
 
     .projects {
       display: flex;
       gap: 20px;
-      width: max-content;
-      animation: scroll-loop 60s linear infinite;
+      width: fit-content;
+      animation: scroll-loop 40s linear infinite;
     }
 
     .projects:hover {
@@ -98,14 +98,8 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* 📱 Static grid version for mobile */
-    .projects-static {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
     .project-card {
+      flex: 0 0 280px;
       background: var(--card-bg);
       border-radius: 10px;
       overflow: hidden;
@@ -154,6 +148,13 @@
       font-weight: 300;
     }
 
+    /* Mobile version: grid layout */
+    .projects-static {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
     .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -189,16 +190,6 @@
       margin: 5px 0;
     }
 
-    .member-card a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .member-card a:hover {
-      text-decoration: underline;
-    }
-
     .contact {
       background: var(--card-bg);
       padding: 30px;
@@ -232,7 +223,7 @@
       font-weight: 300;
     }
 
-    /* 👨‍💻 เปิด scroll แบบ animation บนจอใหญ่เท่านั้น */
+    /* Show scrolling only on desktop */
     @media (min-width: 768px) {
       .projects-wrapper {
         display: block;
@@ -241,10 +232,13 @@
       .projects-static {
         display: none;
       }
+
+      .team-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
     }
   </style>
 </head>
-
 <body>
   <header>
     <div class="overlay">
@@ -256,109 +250,40 @@
   <div class="container">
     <h2 class="section-title">ผลงานของฉัน</h2>
 
-    <!-- ✅ เลื่อนอัตโนมัติ (คอม) -->
+    <!-- 👨‍💻 Desktop Scroll Section -->
     <div class="projects-wrapper">
       <div class="projects">
-        <a href="#" class="project-card">
-          <img src="https://via.placeholder.com/400x200?text=Project+1" alt="โตมากับแลตตาซอย">
-          <div class="info">
-            <h3>โตมากับแลตตาซอย</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
-        <a href="#" class="project-card">
-          <img src="sdgs.jpg" alt="SDGs Young Creator">
-          <div class="info">
-            <h3>SDGs Young Creator</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
-        <a href="#" class="project-card">
-          <img src="destiny.jpg" alt="Destiny of Love">
-          <div class="info">
-            <h3>Destiny of Love</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
-        <a href="#" class="project-card">
-          <div class="placeholder">รอประกาศผลการแข่งขัน</div>
-          <div class="info">
-            <h3>meสติweสไตล์</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
-        <a href="#" class="project-card">
-          <div class="placeholder">อยู่ระหว่างการแข่งขัน</div>
-          <div class="info">
-            <h3>STOP Bullying</h3>
-            <p>ดูรายละเอียด</p>
-          </div>
-        </a>
+        <!-- รวมซ้ำเพื่อให้ลูปสมบูรณ์ -->
+        <a href="#" class="project-card"><img src="sdgs.jpg"><div class="info"><h3>SDGs Young Creator</h3><p>ดูรายละเอียด</p></div></a>
+        <a href="#" class="project-card"><img src="destiny.jpg"><div class="info"><h3>Destiny of Love</h3><p>ดูรายละเอียด</p></div></a>
+        <a href="#" class="project-card"><img src="https://via.placeholder.com/400x200?text=Project+1"><div class="info"><h3>โตมากับแลตตาซอย</h3><p>ดูรายละเอียด</p></div></a>
+        <a href="#" class="project-card"><div class="placeholder">รอประกาศผลการแข่งขัน</div><div class="info"><h3>meสติweสไตล์</h3><p>ดูรายละเอียด</p></div></a>
+        <a href="#" class="project-card"><div class="placeholder">อยู่ระหว่างการแข่งขัน</div><div class="info"><h3>STOP Bullying</h3><p>ดูรายละเอียด</p></div></a>
+        <!-- สำเนา -->
+        <a href="#" class="project-card"><img src="sdgs.jpg"><div class="info"><h3>SDGs Young Creator</h3><p>ดูรายละเอียด</p></div></a>
+        <a href="#" class="project-card"><img src="destiny.jpg"><div class="info"><h3>Destiny of Love</h3><p>ดูรายละเอียด</p></div></a>
+        <a href="#" class="project-card"><img src="https://via.placeholder.com/400x200?text=Project+1"><div class="info"><h3>โตมากับแลตตาซอย</h3><p>ดูรายละเอียด</p></div></a>
+        <a href="#" class="project-card"><div class="placeholder">รอประกาศผลการแข่งขัน</div><div class="info"><h3>meสติweสไตล์</h3><p>ดูรายละเอียด</p></div></a>
+        <a href="#" class="project-card"><div class="placeholder">อยู่ระหว่างการแข่งขัน</div><div class="info"><h3>STOP Bullying</h3><p>ดูรายละเอียด</p></div></a>
       </div>
     </div>
 
-    <!-- ✅ แสดงแบบปกติ (มือถือ) -->
+    <!-- 📱 Static Projects for Mobile -->
     <div class="projects-static">
-      <a href="#" class="project-card">
-        <img src="https://via.placeholder.com/400x200?text=Project+1" alt="โตมากับแลตตาซอย">
-        <div class="info">
-          <h3>โตมากับแลตตาซอย</h3>
-          <p>ดูรายละเอียด</p>
-        </div>
-      </a>
-      <a href="#" class="project-card">
-        <img src="sdgs.jpg" alt="SDGs Young Creator">
-        <div class="info">
-          <h3>SDGs Young Creator</h3>
-          <p>ดูรายละเอียด</p>
-        </div>
-      </a>
-      <a href="#" class="project-card">
-        <img src="destiny.jpg" alt="Destiny of Love">
-        <div class="info">
-          <h3>Destiny of Love</h3>
-          <p>ดูรายละเอียด</p>
-        </div>
-      </a>
-      <a href="#" class="project-card">
-        <div class="placeholder">รอประกาศผลการแข่งขัน</div>
-        <div class="info">
-          <h3>meสติweสไตล์</h3>
-          <p>ดูรายละเอียด</p>
-        </div>
-      </a>
-      <a href="#" class="project-card">
-        <div class="placeholder">อยู่ระหว่างการแข่งขัน</div>
-        <div class="info">
-          <h3>STOP Bullying</h3>
-          <p>ดูรายละเอียด</p>
-        </div>
-      </a>
+      <a href="#" class="project-card"><img src="sdgs.jpg"><div class="info"><h3>SDGs Young Creator</h3><p>ดูรายละเอียด</p></div></a>
+      <a href="#" class="project-card"><img src="destiny.jpg"><div class="info"><h3>Destiny of Love</h3><p>ดูรายละเอียด</p></div></a>
+      <a href="#" class="project-card"><img src="https://via.placeholder.com/400x200?text=Project+1"><div class="info"><h3>โตมากับแลตตาซอย</h3><p>ดูรายละเอียด</p></div></a>
+      <a href="#" class="project-card"><div class="placeholder">รอประกาศผลการแข่งขัน</div><div class="info"><h3>meสติweสไตล์</h3><p>ดูรายละเอียด</p></div></a>
+      <a href="#" class="project-card"><div class="placeholder">อยู่ระหว่างการแข่งขัน</div><div class="info"><h3>STOP Bullying</h3><p>ดูรายละเอียด</p></div></a>
     </div>
 
-    <!-- สมาชิกและท้ายเว็บ -->
     <h2 class="section-title">สมาชิกในทีม</h2>
     <div class="team-grid">
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=A" alt="">
-        <h3>Paniti Kulrungrot</h3>
-      </div>
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=B" alt="">
-        <h3>Pharunyu Karnchanasutham</h3>
-      </div>
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=C" alt="">
-        <h3>Sathin Wongthienchai</h3>
-      </div>
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=D" alt="">
-        <h3>Napong Moongkhumklang</h3>
-      </div>
-      <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=E" alt="">
-        <h3>Vachiravong Nonsiri</h3>
-      </div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=A" alt=""><h3>Paniti Kulrungrot</h3></div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=B" alt=""><h3>Pharunyu Karnchanasutham</h3></div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=C" alt=""><h3>Sathin Wongthienchai</h3></div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=D" alt=""><h3>Napong Moongkhumklang</h3></div>
+      <div class="member-card"><img src="https://via.placeholder.com/120x120?text=E" alt=""><h3>Vachiravong Nonsiri</h3></div>
     </div>
 
     <div class="contact">
