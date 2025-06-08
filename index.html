@@ -145,10 +145,10 @@
   const wrapper = document.querySelector('.projects-wrapper');
   const projects = document.querySelector('.projects');
 
-  // Prevent mouse wheel / trackpad scroll
+  // ❌ Block wheel scroll
   wrapper.addEventListener('wheel', e => e.preventDefault(), { passive: false });
 
-  // Drag to scroll
+  // 🖱 Drag scroll
   let isDown = false;
   let startX;
   let currentTransform = 0;
@@ -156,7 +156,7 @@
   wrapper.addEventListener('mousedown', (e) => {
     isDown = true;
     startX = e.pageX;
-    projects.style.animationPlayState = 'paused'; // pause auto scroll
+    projects.style.animationPlayState = 'paused';
   });
 
   wrapper.addEventListener('mouseleave', () => {
@@ -179,7 +179,6 @@
     startX = x;
   });
 </script>
-
 
 </body>
 </html>
