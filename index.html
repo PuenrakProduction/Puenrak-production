@@ -106,5 +106,33 @@
   <footer>
     &copy; 2025 เพื่อนรัก(ส์). สงวนลิขสิทธิ์.
   </footer>
+  <script>
+  const projects = document.querySelector('.projects');
+
+  let isUserScrolling = false;
+
+  // Detect user scrolling (mouse or touch)
+  projects.addEventListener('wheel', () => {
+    pauseScroll();
+  });
+
+  projects.addEventListener('touchstart', () => {
+    pauseScroll();
+  });
+
+  function pauseScroll() {
+    if (!isUserScrolling) {
+      projects.style.animationPlayState = 'paused';
+      isUserScrolling = true;
+
+      // Resume after 3 seconds of inactivity
+      setTimeout(() => {
+        projects.style.animationPlayState = 'running';
+        isUserScrolling = false;
+      }, 3000);
+    }
+  }
+</script>
+
 </body>
 </html>
