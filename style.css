@@ -71,25 +71,14 @@ h2.section-title {
 .projects-wrapper {
   overflow: hidden;
   position: relative;
-  cursor: grab;
-}
-
-.projects-wrapper:active {
-  cursor: grabbing;
+  pointer-events: none; /* ห้าม mouse scroll */
 }
 
 .projects {
   display: flex;
   gap: 20px;
   width: max-content;
-  user-select: none;
   animation: scroll-loop 50s linear infinite;
-  will-change: transform;
-  animation-play-state: running;
-}
-
-.projects-wrapper:hover .projects {
-  animation-play-state: paused;
 }
 
 @keyframes scroll-loop {
