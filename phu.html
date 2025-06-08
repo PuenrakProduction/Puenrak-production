@@ -1,77 +1,104 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Paniti Kulrungrot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHU - Paniti Kulrungrot</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Prompt:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
   <style>
-    .profile-page {
-      height: 100vh;
+    :root {
+      --primary-color: #FFD700;
+      --bg-dark: rgba(0, 0, 0, 0.6);
+      --text-color: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Prompt', 'Poppins', sans-serif;
+    }
+
+    .hero {
       background: url('PHU.jpg') no-repeat center center/cover;
+      height: 100vh;
       position: relative;
-      color: white;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
+      color: var(--text-color);
     }
-    .profile-page::before {
-      content: '';
+
+    .overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
+      background: var(--bg-dark);
+      backdrop-filter: blur(4px);
+      z-index: 0;
     }
-    .profile-content {
-      position: relative;
+
+    .content {
       z-index: 1;
+      max-width: 800px;
       padding: 30px;
-      max-width: 700px;
     }
-    .profile-content h1 {
-      font-size: 3em;
+
+    .nickname {
+      font-size: 4em;
       font-weight: 700;
       color: var(--primary-color);
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 5px #000;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 8px #000;
     }
-    .profile-content p {
-      font-size: 1.1em;
+
+    .fullname {
+      font-size: 1.2em;
       font-weight: 300;
-      color: #eee;
-      line-height: 1.8;
+      margin-top: 10px;
+      color: #ddd;
     }
+
     .back-button {
-      margin-top: 30px;
+      margin-top: 40px;
       background: var(--primary-color);
       color: #000;
       padding: 12px 25px;
-      border: none;
       font-weight: bold;
-      border-radius: 8px;
+      border: none;
+      border-radius: 25px;
       cursor: pointer;
-      transition: background 0.3s;
+      font-size: 1em;
+      transition: background 0.3s ease;
     }
+
     .back-button:hover {
-      background: #ffc800;
+      background: #e6c200;
     }
+
     @media (max-width: 768px) {
-      .profile-content h1 {
-        font-size: 2em;
+      .nickname {
+        font-size: 2.5em;
+      }
+
+      .fullname {
+        font-size: 1em;
       }
     }
   </style>
 </head>
 <body>
-  <div class="profile-page">
-    <div class="profile-content">
-      <h1>PANITI KULRUNGROT</h1>
-      <p>ใส่ประวัติหรือคำพูดเท่ ๆ ของเขาตรงนี้ได้</p>
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="nickname">PHU</div>
+      <div class="fullname">Paniti Kulrungrot</div>
       <a href="index.html"><button class="back-button">← กลับหน้าหลัก</button></a>
     </div>
-  </div>
+  </section>
 </body>
 </html>
