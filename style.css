@@ -183,9 +183,11 @@ h2.section-title {
 }
 
 .member-card h3 {
-  font-size: 1em;
-  margin: 5px 0;
-}
+    font-size: 1em;
+    margin: 5px 0;
+    color: #f0f0f0; /* สีขาวอ่อน */
+  }
+  
 
 .contact {
   background: var(--card-bg);
