@@ -1,95 +1,11 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>เพื่อนรัก(ส์) โปรดักชั่น</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Prompt:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css" />
-<style>
-  /* Preloader Style */
-  #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: #000000;
-    padding: 1rem;
-  }
-
-  #preloader video {
-    width: 100%;
-    max-width: 720px;
-    height: auto;
-    border-radius: 10px;
-  }
-
-  #preloader p {
-    font-family: 'Prompt', sans-serif;
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    text-align: center;
-  }
-
-  #content {
-    display: none; /* ซ่อนเนื้อหาเว็บในตอนแรก */
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    header h1 {
-      font-size: 2rem;
-    }
-
-    header p {
-      font-size: 1rem;
-    }
-
-    .video-section video {
-      width: 100%;
-      height: auto;
-    }
-
-    .projects-wrapper {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .projects .project-card {
-      width: 100%;
-    }
-
-    .team-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    .contact p {
-      font-size: 1rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .team-grid {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-    }
-
-    header p {
-      font-size: 0.9rem;
-    }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>เพื่อนรัก(ส์) โปรดักชั่น</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Prompt:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Preloader -->
@@ -109,9 +25,10 @@
         <p>Puenrak(S) Production</p>
       </div>
     </header>
-    
+
     <div class="container">
       <h2 class="section-title">ผลงานของทีม</h2>
+
       <!-- 🔽 วิดีโอผลงานล่าสุด -->
       <div class="video-section" style="text-align:center; margin-bottom: 2rem;">
         <h3>วิดีโอผลงานล่าสุด</h3>
@@ -120,7 +37,7 @@
           เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
         </video>
       </div>
-      
+
       <!-- 🖥 Desktop Projects -->
       <div class="projects-wrapper">
         <div class="projects">
@@ -192,7 +109,6 @@
     const preloaderVideo = document.getElementById('preloader-video');
     const content = document.getElementById('content');
 
-    // ตรวจสอบว่าผู้ใช้บนมือถือสามารถเล่นวิดีโอได้หรือไม่
     function checkVideoPlayability() {
       preloaderVideo.play()
         .then(() => {
@@ -200,19 +116,16 @@
         })
         .catch((error) => {
           console.error("Autoplay not supported:", error);
-          // ซ่อนวิดีโอและแสดงเนื้อหาแทน
           preloader.style.display = 'none';
           content.style.display = 'block';
         });
     }
 
-    // เมื่อวิดีโอสิ้นสุดการเล่น ให้ซ่อน Preloader และแสดงเนื้อหาเว็บไซต์
     preloaderVideo.onended = function() {
       preloader.style.display = 'none';
       content.style.display = 'block';
     };
 
-    // เรียกใช้ฟังก์ชันตรวจสอบเมื่อโหลด DOM เสร็จ
     document.addEventListener("DOMContentLoaded", checkVideoPlayability);
   </script>
 </body>
