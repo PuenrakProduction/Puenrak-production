@@ -94,7 +94,7 @@
 <body>
   <!-- Preloader -->
   <div id="preloader">
-    <video id="preloader-video" autoplay muted>
+    <video id="preloader-video" autoplay muted playsinline>
       <source src="Comp_2_4.mp4" type="video/mp4">
       เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
     </video>
@@ -192,11 +192,28 @@
     const preloaderVideo = document.getElementById('preloader-video');
     const content = document.getElementById('content');
 
+    // ตรวจสอบว่าผู้ใช้บนมือถือสามารถเล่นวิดีโอได้หรือไม่
+    function checkVideoPlayability() {
+      preloaderVideo.play()
+        .then(() => {
+          console.log("Video is playing.");
+        })
+        .catch((error) => {
+          console.error("Autoplay not supported:", error);
+          // ซ่อนวิดีโอและแสดงเนื้อหาแทน
+          preloader.style.display = 'none';
+          content.style.display = 'block';
+        });
+    }
+
     // เมื่อวิดีโอสิ้นสุดการเล่น ให้ซ่อน Preloader และแสดงเนื้อหาเว็บไซต์
     preloaderVideo.onended = function() {
       preloader.style.display = 'none';
       content.style.display = 'block';
     };
+
+    // เรียกใช้ฟังก์ชันตรวจสอบเมื่อโหลด DOM เสร็จ
+    document.addEventListener("DOMContentLoaded", checkVideoPlayability);
   </script>
 </body>
 </html>
